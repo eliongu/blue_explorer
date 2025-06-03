@@ -7,8 +7,8 @@ TRIG_PULSE_DURATION_US=10
 trig_pin1 = Pin(18, Pin.OUT)
 echo_pin1 = Pin(11, Pin.IN)
 
-trig_pin2 = Pin(6, Pin.OUT)
-echo_pin2 = Pin(5, Pin.IN)
+trig_pin2 = Pin(5, Pin.OUT)
+echo_pin2 = Pin(4, Pin.IN)
 
 
 global distance_front
@@ -32,7 +32,7 @@ def get_distance():
     distance_back = SOUND_SPEED * ultrason_duration2 / 20000
 
 
-    print(f"Distance  front : {distance_front} cm")
-    #print(f"Distance back : {distance_back} cm")
+    # print(f"Distance  front : {distance_front} cm")
+    print(f"Distance back : {distance_back} cm")
     time.sleep_ms(500)
     return distance_front, distance_back
