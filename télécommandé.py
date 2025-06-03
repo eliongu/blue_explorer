@@ -25,19 +25,19 @@ def set_speed(percent, enable):
     duty = int((percent / 100) * 1023)
     enable.duty(duty)
 
-def motor1_forward():
-    pin1.value(1)
-    pin2.value(0)
-
-def motor1_backward():
+def motorD_forward():
     pin1.value(0)
     pin2.value(1)
 
-def motor2_forward():
+def motorD_backward():
+    pin1.value(1)
+    pin2.value(0)
+
+def motorG_forward():
     pin3.value(0)
     pin4.value(1)
 
-def motor2_backward():
+def motorG_backward():
     pin3.value(1)
     pin4.value(0)
 
@@ -45,29 +45,29 @@ def forward():
     print("Avancer")
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_forward()
-    motor2_forward()
+    motorD_forward()
+    motorG_forward()
 
 def backward():
     print("Reculer")
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_backward()
-    motor2_backward()
+    motorD_backward()
+    motorG_backward()
 
 def turn_left():
     print("Gauche")
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_backward()
-    motor2_forward()
+    motorG_backward()
+    motorD_forward()
 
 def turn_right():
     print("Droite")
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_forward()
-    motor2_backward()
+    motorG_forward()
+    motorD_backward()
 
 def stop():
     print("Stop")
@@ -101,3 +101,5 @@ while True:
                 stop()
         except Exception as err:
             print("Erreur décodage :", err)
+            
+
