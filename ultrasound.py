@@ -10,7 +10,11 @@ echo_pin1 = Pin(16, Pin.IN)
 trig_pin2 = Pin(PIN, Pin.OUT)
 echo_pin2 = Pin(PIN, Pin.IN)
 
-while True:
+
+global distance_front
+global distance_back
+
+def init_ultrason():
     trig_pin1.value(0)
     trig_pin2.value(0)
     time.sleep_us(5)
