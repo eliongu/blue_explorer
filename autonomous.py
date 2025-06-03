@@ -1,5 +1,18 @@
 from ultrasound import *
 from motors import *
+import network
+import espnow
+
+sta = network.WLAN(network.WLAN.IF_STA) 
+sta.active(True)
+sta.disconnect() 
+
+e = espnow.ESPNow()
+e.active(True)
+macC3 = b'hg%\xe8w\xe4'
+e.add_peer(macC3)  
+
+
 
 
 rotation_attempts = 0
@@ -41,11 +54,11 @@ def explore():
     if rotation_attempts >= MAX_ATTEMPTS:
         print("Trop de tentatives. Le robot est peut-être bloqué.")
         stop()
-        # Ajouter la led rouge
+        e.send(macC3, "ROUGE")
         return
 
     if check_obstacle():
-        # Led verte
+        e.send(macC3, "VERT")
         forward()
     else:
         time.sleep(0.5)

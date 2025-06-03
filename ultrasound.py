@@ -4,8 +4,8 @@ import time
 SOUND_SPEED= 340
 TRIG_PULSE_DURATION_US=10
 
-trig_pin1 = Pin(10, Pin.OUT)
-echo_pin1 = Pin(8, Pin.IN)
+trig_pin1 = Pin(11, Pin.OUT)
+echo_pin1 = Pin(16, Pin.IN)
 
 trig_pin2 = Pin(PIN, Pin.OUT)
 echo_pin2 = Pin(PIN, Pin.IN)

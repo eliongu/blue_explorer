@@ -16,45 +16,45 @@ def set_speed(percent, enable):
     duty = int((percent / 100) * 1023)
     enable.duty(duty)
 
-def motor1_forward():
+def motorR_forward():
     pin1.value(1)
     pin2.value(0)
 
-def motor1_backward():
+def motorR_backward():
     pin1.value(0)
     pin2.value(1)
 
-def motor2_forward():
+def motorL_forward():
     pin3.value(0)
     pin4.value(1)
 
-def motor2_backward():
+def motorL_backward():
     pin3.value(1)
     pin4.value(0)
 
 def forward():
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_forward()
-    motor2_forward()
+    motorR_forward()
+    motorL_forward()
 
 def backward():
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_backward()
-    motor2_backward()
+    motorR_backward()
+    motorL_backward()
 
 def turn_left():
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_backward()
-    motor2_forward()
+    motorR_backward()
+    motorL_forward()
 
 def turn_right():
     set_speed(80, enable1)
     set_speed(80, enable2)
-    motor1_forward()
-    motor2_backward()
+    motorR_forward()
+    motorL_backward()
 
 def stop():
     pin1.value(0)
