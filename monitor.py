@@ -9,16 +9,6 @@ sta.disconnect()
 e = espnow.ESPNow()
 e.active(True)
 
-pin1 = Pin(10, Pin.OUT)
-pin2 = Pin(8, Pin.OUT)
-enable1 = PWM(Pin(7))
-enable1.freq(1000)
-
-pin3 = Pin(22, Pin.OUT)
-pin4 = Pin(23, Pin.OUT)
-enable2 = PWM(Pin(21))
-enable2.freq(1000)
-
 autonomous_mode = False
 
 def monitor():
@@ -32,9 +22,14 @@ def monitor():
             if bouton == "pressé":
                 autonomous_mode = not autonomous_mode
                 sleep(0.2)  # Anti-rebond
-                
+
+            # Répondre à l'émetteur pour allumer la LED correspondante
+            if autonomous_mode:
+                e.send(host, b"VERT")
+            else:
+                e.send(host, b"ROUGE")
+
             if not autonomous_mode:
-            # Action selon direction
                 if direction == "CENTRE":
                     stop()
                 elif direction == "HAUT":
@@ -47,7 +42,6 @@ def monitor():
                     turn_right()
                 else:
                     stop()
-            
 
         except Exception as err:
             print("Erreur décodage :", err)

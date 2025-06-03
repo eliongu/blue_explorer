@@ -64,6 +64,4 @@ def stop():
     set_speed(0, enable1)
     set_speed(0, enable2)
 
-print("Stop")
-stop()
 
