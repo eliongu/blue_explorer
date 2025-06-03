@@ -13,8 +13,6 @@ macC3 = b'hg%\xe8w\xe4'
 e.add_peer(macC3)  
 
 
-
-
 rotation_attempts = 0
 MAX_ATTEMPTS = 3
 
@@ -23,6 +21,7 @@ def reset_attempts():
     rotation_attempts = 0
 
 def check_obstacle():
+    distance_front, distance_back = get_distance()
     if distance_front < 10 and distance_back > 20:
         stop()
         backward()
