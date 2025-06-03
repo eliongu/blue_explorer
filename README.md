@@ -32,6 +32,8 @@ Notre objectif est de proposer une solution **efficace, mobile et économique**,
     - [Schéma électronique Corps](schéma-elec-Corps.png)
     - [Schéma électronique Manette](schéma-elec-Manette.png)
     - Prototype complet (assemblage électronique et mécanique)
+        - [Corps](Corps.jpg)
+        - [Manette](Manette.jpg)
     - Protocole d’assemblage
         - fixation des moteurs à l'aide de vis et écrous M3
         - branchement sur l'esp32-C6 ref [Schéma électronique Corps](schéma-elec-Corps.png)
@@ -39,4 +41,6 @@ Notre objectif est de proposer une solution **efficace, mobile et économique**,
     - [Bilan énergétique](Bilan_énergétique.xlsx)
     - Bills of materials (BOM)
     - Justification de choix de composants
-    - Code source (fichiers.py)
+    - Code source 
+        - [Corps](télécommandé.py)
+        - [Manette](pilotage.py)
